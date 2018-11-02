@@ -12,10 +12,12 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var pokedexTableView: UITableView!
     var pokemons: [Pokemon] = []
+    var pokemonImages: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GetPokemons(completed: self.updateUI)
+        GetPokemonsImages(from: 1, to: 75, completed: self.updateUIImages)
         pokedexTableView.delegate = self
         pokedexTableView.dataSource = self
         pokedexTableView.reloadData()
@@ -25,6 +27,10 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateUI(pokemonsData: [Pokemon]) {
         pokemons = pokemonsData
         pokedexTableView.reloadData()
+    }
+    
+    func updateUIImages(images: [UIImage]) {
+        pokemonImages = images
     }
     
     /*

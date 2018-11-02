@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
+import UIKit
 
 func GetPokemons(completed: @escaping ([Pokemon]) -> ()) {
     let headers: HTTPHeaders = [
@@ -35,4 +37,18 @@ func GetPokemons(completed: @escaping ([Pokemon]) -> ()) {
                 print("error")
             }
     })
+}
+
+func GetPokemonsImages(from: Int, to: Int, completed: @escaping ([UIImage]) -> ()) {
+    var images : [UIImage] = []
+    for i in from...to {
+        let urlPokemon = "http://pokedex-mti.twitchytv.live/images/\(i).png"
+        let url = URL(string: urlPokemon)
+        Alamofire.request(url!).responseImage { response in
+            if let image = response.result.value {
+                images.append(image)
+                completed(images)
+            }
+        }
+    }
 }
