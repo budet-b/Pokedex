@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-func GetPokemons() {
+func GetPokemons(completed: @escaping ([Pokemon]) -> ()) {
     let headers: HTTPHeaders = [
         "Accept": "application/json"
     ]
@@ -26,7 +26,7 @@ func GetPokemons() {
                 do {
                     pokemonsRes = try JSONDecoder().decode([Pokemon].self, from: data)
                     DispatchQueue.main.async {
-                        print(pokemonsRes)
+                        completed(pokemonsRes)
                     }
                 } catch {
                     print("error")

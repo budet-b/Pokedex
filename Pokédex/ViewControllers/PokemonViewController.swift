@@ -13,7 +13,6 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Rodrigue")
-        GetPokemons()
         // Do any additional setup after loading the view.
     }
     
