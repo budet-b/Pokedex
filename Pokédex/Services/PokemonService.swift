@@ -39,26 +39,12 @@ func GetPokemons(completed: @escaping ([Pokemon]) -> ()) {
     })
 }
 
-func GetPokemonsImages(from: Int, to: Int, completed: @escaping ([UIImage]) -> ()) {
-    var images : [UIImage] = []
-    let myGroup = DispatchGroup()
-    var isLoading = true
-    for i in from...to {
-        myGroup.enter()
-        DispatchQueue.main.async {
-            let urlPokemon = "http://pokedex-mti.twitchytv.live/images/\(i).png"
-            let url = URL(string: urlPokemon)
-            Alamofire.request(url!).responseImage { response in
-                if let image = response.result.value {
-                    images.append(image)
-                }
-                myGroup.leave()
-            }
-            if (i == from) {
-                myGroup.notify(queue: .main) {
-                    completed(images)
-                }
-            }
+func GetPokemonImage(id: Int, completed: @escaping (UIImage) -> ()) {
+    let urlPokemon = "http://pokedex-mti.twitchytv.live/images/\(id).png"
+    let url = URL(string: urlPokemon)
+    Alamofire.request(url!).responseImage { response in
+        if let image = response.result.value {
+            completed(image)
         }
     }
 }
