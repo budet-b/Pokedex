@@ -52,10 +52,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-wp-Go2">
-                                                    <rect key="frame" x="231" y="58.000000000000007" width="85" height="20.333333333333336"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="85" id="Sxj-j7-WwS"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="215" y="58.000000000000007" width="143" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -68,8 +65,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="hyP-ie-6Cx" secondAttribute="trailing" id="Mhk-o6-lc9"/>
                                                 <constraint firstItem="Seg-eR-h8a" firstAttribute="leading" secondItem="aMO-UA-VJS" secondAttribute="leading" constant="20" id="OIl-Hs-az4"/>
                                                 <constraint firstItem="Eqz-Yj-HdP" firstAttribute="top" secondItem="hyP-ie-6Cx" secondAttribute="bottom" constant="18" id="QYB-Jd-FE9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pbu-wp-Go2" secondAttribute="trailing" constant="52" id="hoN-39-FsH"/>
-                                                <constraint firstItem="pbu-wp-Go2" firstAttribute="leading" secondItem="Eqz-Yj-HdP" secondAttribute="trailing" constant="26" id="irs-mt-cxP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pbu-wp-Go2" secondAttribute="trailing" constant="10" id="hoN-39-FsH"/>
+                                                <constraint firstItem="pbu-wp-Go2" firstAttribute="leading" secondItem="Eqz-Yj-HdP" secondAttribute="trailing" constant="10" id="irs-mt-cxP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="pbu-wp-Go2" secondAttribute="bottom" constant="0.67000000000000004" id="oX8-bQ-414"/>
                                                 <constraint firstAttribute="bottom" secondItem="Seg-eR-h8a" secondAttribute="bottom" constant="5.6699999999999999" id="vXY-et-enn"/>
                                                 <constraint firstItem="hyP-ie-6Cx" firstAttribute="leading" secondItem="Seg-eR-h8a" secondAttribute="trailing" constant="13" id="yGy-6f-Sae"/>
