@@ -13,6 +13,9 @@ class PokemonDetailViewController: UIViewController {
     var PokemonId = 0
     var pokemon: Pokemon?
     
+    @IBOutlet weak var evolutionView: UIView!
+    @IBOutlet weak var preEvolutionConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonIdentifier: UILabel!
@@ -35,6 +38,31 @@ class PokemonDetailViewController: UIViewController {
         pokemonHeight.text = pokemon?.height
         pokemonWidth.text =  pokemon?.weight
         pokemonDescription.text =  pokemon?.description
+        pokemonType1.backgroundColor = getColorFromType(type: pokemon?.type1.id ?? 0)
+        pokemonType1.layer.cornerRadius = pokemonType1.frame.size.height / 2
+        pokemonType1.clipsToBounds = true
+        pokemonType1.textColor = UIColor.white
+        
+        if let type2 = pokemon?.type2 {
+            pokemonType2.backgroundColor = getColorFromType(type: type2.id)
+            pokemonType2.text = type2.name
+            pokemonType2.layer.cornerRadius = pokemonType2.frame.size.height / 2
+            pokemonType2.clipsToBounds = true
+            pokemonType2.textColor = UIColor.white
+        } else {
+            pokemonType2.text = ""
+            pokemonType2.backgroundColor = UIColor.white
+        }
+        if let pre_evol = pokemon?.preEvolutionId {
+            pokemonPreEvolutionOf.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(pre_evol).png"), placeholderImage: UIImage(named: "pokeball"))
+        } else {
+            evolutionView.isHidden = true
+            pokemonPreEvolutionText.text = ""
+            pokemonPreEvolutionOf.image = nil
+            preEvolutionConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
