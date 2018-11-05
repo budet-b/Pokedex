@@ -367,23 +367,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wA-xi-rWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518.840579710145" y="-800.22321428571422"/>
+            <point key="canvasLocation" x="2428.985507246377" y="-800.22321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Pokedex ML-->
         <scene sceneID="BjJ-Ad-NuR">
             <objects>
-                <viewController id="xLF-s9-cJD" sceneMemberID="viewController">
+                <viewController id="xLF-s9-cJD" customClass="PokemonMLViewController" customModule="pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyf-2T-o3H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Pokemon is it ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-Er-R8K">
+                                <rect key="frame" x="20" y="160" width="374" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="act-XW-ClB">
+                                <rect key="frame" x="20" y="623.33333333333337" width="374" height="30"/>
+                                <state key="normal" title="Open library"/>
+                                <connections>
+                                    <action selector="openPicture:" destination="xLF-s9-cJD" eventType="touchUpInside" id="8Nt-kB-C9M"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pA-MP-PeI">
+                                <rect key="frame" x="57" y="254.33333333333337" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="aeP-ZD-KJd"/>
+                                    <constraint firstAttribute="width" constant="300" id="q1J-9D-kAA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwH-ye-pFf">
+                                <rect key="frame" x="20" y="596" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="act-XW-ClB" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="2Oj-GI-G0b"/>
+                            <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="bwH-ye-pFf" secondAttribute="trailing" constant="20" id="HCA-bS-HC8"/>
+                            <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="act-XW-ClB" secondAttribute="trailing" constant="20" id="HgV-om-rP7"/>
+                            <constraint firstItem="4wQ-Er-R8K" firstAttribute="top" secondItem="sto-v5-Fxv" secondAttribute="top" constant="20" id="P9x-pQ-MSm"/>
+                            <constraint firstItem="act-XW-ClB" firstAttribute="top" secondItem="bwH-ye-pFf" secondAttribute="bottom" constant="27.329999999999998" id="RfE-Y5-SC0"/>
+                            <constraint firstItem="2pA-MP-PeI" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="57" id="S2Q-st-c6U"/>
+                            <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="4wQ-Er-R8K" secondAttribute="trailing" constant="20" id="Sst-Oj-QNz"/>
+                            <constraint firstItem="bwH-ye-pFf" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="U0y-qA-W9N"/>
+                            <constraint firstItem="bwH-ye-pFf" firstAttribute="top" secondItem="2pA-MP-PeI" secondAttribute="bottom" constant="41.670000000000002" id="VqO-Yz-7Li"/>
+                            <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="2pA-MP-PeI" secondAttribute="trailing" constant="57" id="hYt-JW-R6b"/>
+                            <constraint firstItem="4wQ-Er-R8K" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="iGk-X2-UIJ"/>
+                            <constraint firstItem="2pA-MP-PeI" firstAttribute="top" secondItem="4wQ-Er-R8K" secondAttribute="bottom" constant="63" id="tey-ze-GBO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sto-v5-Fxv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="e2o-PT-Seo"/>
+                    <navigationItem key="navigationItem" title="Pokedex ML" id="yyK-Oq-ZzL"/>
+                    <connections>
+                        <outlet property="pokemonImageRes" destination="2pA-MP-PeI" id="bDS-29-oRz"/>
+                        <outlet property="pokemonResLabel" destination="bwH-ye-pFf" id="GlO-7A-GRu"/>
+                        <outlet property="resultLabel" destination="4wQ-Er-R8K" id="2d5-qG-ZvC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zJ-lB-nMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="-101"/>
+            <point key="canvasLocation" x="550.72463768115949" y="-101.11607142857143"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="45Z-D3-BMa">
@@ -397,7 +444,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ITs-Bb-YAs" kind="relationship" relationship="viewControllers" id="f21-Cj-QG7"/>
-                        <segue destination="xLF-s9-cJD" kind="relationship" relationship="viewControllers" id="1gT-71-XLu"/>
+                        <segue destination="Yyt-OK-MsP" kind="relationship" relationship="viewControllers" id="1gT-71-XLu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6K-zn-w1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -422,6 +469,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vJ-8f-T6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-359.4202898550725" y="-800.22321428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6jE-tt-HFP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yyt-OK-MsP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="e2o-PT-Seo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ATA-pz-eGR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xLF-s9-cJD" kind="relationship" relationship="rootViewController" id="lec-Zb-1WO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mcm-Hs-42r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-359.4202898550725" y="-101.11607142857143"/>
         </scene>
     </scenes>
     <resources>

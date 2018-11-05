@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PokemonType: Codable {
+public struct PokemonType: Codable {
     var id: Int
     var name: String
     
@@ -16,10 +16,4 @@ struct PokemonType: Codable {
         case id
         case name
     }
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        id = try container.decodeIfPresent(Int.self, forKey: .id) ?? 0
-//        name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
-//    }
 }
