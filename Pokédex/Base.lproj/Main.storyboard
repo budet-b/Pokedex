@@ -403,21 +403,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6D-1B-LJq">
+                                <rect key="frame" x="20" y="673.33333333333337" width="374" height="30"/>
+                                <state key="normal" title="Open iPhone camera"/>
+                                <connections>
+                                    <action selector="openCamera:" destination="xLF-s9-cJD" eventType="touchUpInside" id="zBR-qK-G2P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="act-XW-ClB" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="2Oj-GI-G0b"/>
                             <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="bwH-ye-pFf" secondAttribute="trailing" constant="20" id="HCA-bS-HC8"/>
                             <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="act-XW-ClB" secondAttribute="trailing" constant="20" id="HgV-om-rP7"/>
+                            <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="B6D-1B-LJq" secondAttribute="trailing" constant="20" id="Os7-mG-biQ"/>
                             <constraint firstItem="4wQ-Er-R8K" firstAttribute="top" secondItem="sto-v5-Fxv" secondAttribute="top" constant="20" id="P9x-pQ-MSm"/>
                             <constraint firstItem="act-XW-ClB" firstAttribute="top" secondItem="bwH-ye-pFf" secondAttribute="bottom" constant="27.329999999999998" id="RfE-Y5-SC0"/>
                             <constraint firstItem="2pA-MP-PeI" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="57" id="S2Q-st-c6U"/>
                             <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="4wQ-Er-R8K" secondAttribute="trailing" constant="20" id="Sst-Oj-QNz"/>
                             <constraint firstItem="bwH-ye-pFf" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="U0y-qA-W9N"/>
                             <constraint firstItem="bwH-ye-pFf" firstAttribute="top" secondItem="2pA-MP-PeI" secondAttribute="bottom" constant="41.670000000000002" id="VqO-Yz-7Li"/>
+                            <constraint firstItem="B6D-1B-LJq" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="esB-DJ-Kq8"/>
                             <constraint firstItem="sto-v5-Fxv" firstAttribute="trailing" secondItem="2pA-MP-PeI" secondAttribute="trailing" constant="57" id="hYt-JW-R6b"/>
                             <constraint firstItem="4wQ-Er-R8K" firstAttribute="leading" secondItem="sto-v5-Fxv" secondAttribute="leading" constant="20" id="iGk-X2-UIJ"/>
                             <constraint firstItem="2pA-MP-PeI" firstAttribute="top" secondItem="4wQ-Er-R8K" secondAttribute="bottom" constant="63" id="tey-ze-GBO"/>
+                            <constraint firstItem="B6D-1B-LJq" firstAttribute="top" secondItem="act-XW-ClB" secondAttribute="bottom" constant="20" id="ufb-bU-0ie"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sto-v5-Fxv"/>
                     </view>

@@ -17,6 +17,7 @@ class PokemonMLViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var pokemonImageRes: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    let imagePickerCamera = UIImagePickerController()
     var pokemons: [Pokemon] = []
     
     override func viewDidLoad() {
@@ -70,6 +71,14 @@ class PokemonMLViewController: UIViewController, UIImagePickerControllerDelegate
         self.resultLabel.text = nil
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func openCamera(_ sender: Any) {
+        self.resultLabel.text = nil
+        imagePickerCamera.delegate = self
+        imagePickerCamera.sourceType = .camera
+        present(imagePickerCamera, animated: true, completion: nil)
+    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
