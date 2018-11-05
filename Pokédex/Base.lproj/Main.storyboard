@@ -369,7 +369,7 @@
             </objects>
             <point key="canvasLocation" x="2428.985507246377" y="-800.22321428571422"/>
         </scene>
-        <!--Pokedex ML-->
+        <!--Pokédex ML-->
         <scene sceneID="BjJ-Ad-NuR">
             <objects>
                 <viewController id="xLF-s9-cJD" customClass="PokemonMLViewController" customModule="pokedex" customModuleProvider="target" sceneMemberID="viewController">
@@ -431,7 +431,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sto-v5-Fxv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pokedex ML" id="yyK-Oq-ZzL"/>
+                    <navigationItem key="navigationItem" title="Pokédex ML" id="yyK-Oq-ZzL"/>
                     <connections>
                         <outlet property="pokemonImageRes" destination="2pA-MP-PeI" id="bDS-29-oRz"/>
                         <outlet property="pokemonResLabel" destination="bwH-ye-pFf" id="GlO-7A-GRu"/>
@@ -461,13 +461,13 @@
             </objects>
             <point key="canvasLocation" x="-1159.2" y="-435.83208395802103"/>
         </scene>
-        <!--Pokédex-->
+        <!--Navigation Controller-->
         <scene sceneID="ypF-KD-JGU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ITs-Bb-YAs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pokédex" id="RDI-TB-4uf"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="tabbar" systemItem="mostViewed" id="RDI-TB-4uf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="19o-88-D7B">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="19o-88-D7B">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -486,7 +486,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yyt-OK-MsP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="e2o-PT-Seo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ATA-pz-eGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="ATA-pz-eGR">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -502,6 +502,7 @@
     </scenes>
     <resources>
         <image name="pokeball" width="240" height="240.80000305175781"/>
+        <image name="tabbar" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Usq-RA-SRT"/>
