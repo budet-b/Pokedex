@@ -36,9 +36,11 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = pokedexTableView.indexPath(for: cell)
         if segue.identifier == "pokemondetail" {
             if let vc = segue.destination as? PokemonDetailViewController {
-                vc.PokemonId = (self.pokedexTableView.indexPathForSelectedRow?.row ?? 0)
+                vc.PokemonId = pokemons[(indexPath?.row ?? 0) - 1].id
                 vc.pokemons = pokemons
             }
         }
@@ -72,6 +74,7 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.pokemonType2.textColor = UIColor.white
         } else {
             cell.pokemonType2.text = ""
+            cell.pokemonType2.backgroundColor = UIColor.white
         }
         
         return cell
