@@ -9,15 +9,48 @@
 import UIKit
 import SDWebImage
 
-class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pokemons.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
+        cell.pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(indexPath.row + 1).png"), placeholderImage: UIImage(named: "pokeball"))
+        cell.pokemonName.text = pokemons[indexPath.row].name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    @IBAction func switchGrid(_ sender: Any) {
+        if let switcher = sender as? UISwitch {
+            if (switcher.isOn) {
+                pokedexTableView.isHidden = false
+                pokedexCollectionView.isHidden = true
+            } else {
+                pokedexTableView.isHidden = true
+                pokedexCollectionView.isHidden = false
+            }
+        }
+    }
+    
     @IBOutlet weak var pokedexTableView: UITableView!
+    @IBOutlet weak var switcher: UISwitch!
+    @IBOutlet weak var pokedexCollectionView: UICollectionView!
+    
     var pokemons: [Pokemon] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pokedexTableView.delegate = self
         pokedexTableView.dataSource = self
+        pokedexCollectionView.delegate = self
+        pokedexCollectionView.dataSource = self
+        pokedexTableView.isHidden = false
+        pokedexCollectionView.isHidden = true
         GetPokemons(completed: self.updateUI)
         // Do any additional setup after loading the view.
     }
@@ -25,6 +58,7 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateUI(pokemonsData: [Pokemon]) {
         pokemons = pokemonsData
         pokedexTableView.reloadData()
+        pokedexCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,12 +70,18 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = pokedexTableView.indexPath(for: cell)
+        var indexPath = IndexPath(row: 0, section: 0)
+        if (!switcher.isOn) {
+            let cell = sender as! UICollectionViewCell
+            indexPath = pokedexCollectionView.indexPath(for: cell) ?? IndexPath(row: 0, section: 0)
+        } else {
+            let cell = sender as! UITableViewCell
+            indexPath = pokedexTableView.indexPath(for: cell) ?? IndexPath(row: 0, section: 0)
+        }
         if segue.identifier == "pokemondetail" {
             if let vc = segue.destination as? PokemonDetailViewController {
-                vc.PokemonId = pokemons[(indexPath?.row ?? 0) - 1].id
-                vc.pokemons = pokemons
+                vc.pokemon = pokemons[indexPath.row]
+                vc.PokemonId = pokemons[indexPath.row].id
             }
         }
         // Get the new view controller using segue.destination.

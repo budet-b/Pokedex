@@ -11,7 +11,7 @@ import UIKit
 class PokemonDetailViewController: UIViewController {
 
     var PokemonId = 0
-    var pokemons: [Pokemon] = []
+    var pokemon: Pokemon?
     
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var pokemonName: UILabel!
@@ -26,15 +26,15 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pokemonName.text = pokemons[PokemonId].name
-        pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(PokemonId + 1).png"), placeholderImage: UIImage(named: "pokeball"))
-        self.title = pokemons[PokemonId].name
-        pokemonIdentifier.text = "ID: \(PokemonId + 1)"
-        pokemonType1.text = pokemons[PokemonId].type1.name
-        pokemonType2.text = pokemons[PokemonId].type2?.name ?? ""
-        pokemonHeight.text = pokemons[PokemonId].height
-        pokemonWidth.text =  pokemons[PokemonId].weight
-        pokemonDescription.text =  pokemons[PokemonId].description
+        pokemonName.text = pokemon?.name
+        pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(PokemonId).png"), placeholderImage: UIImage(named: "pokeball"))
+        self.title = pokemon?.name
+        pokemonIdentifier.text = "ID: \(PokemonId)"
+        pokemonType1.text = pokemon?.type1.name
+        pokemonType2.text = pokemon?.type2?.name ?? ""
+        pokemonHeight.text = pokemon?.height
+        pokemonWidth.text =  pokemon?.weight
+        pokemonDescription.text =  pokemon?.description
         // Do any additional setup after loading the view.
     }
     
