@@ -9,20 +9,28 @@
 import UIKit
 import SDWebImage
 
-class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemons.count
-    }
+class PokedexViewController: UIViewController {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
-        cell.pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(indexPath.row + 1).png"), placeholderImage: UIImage(named: "pokeball"))
-        cell.pokemonName.text = pokemons[indexPath.row].name
-        return cell
-    }
+    // MARK: -IBOutlet
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+    @IBOutlet weak var pokedexTableView: UITableView!
+    @IBOutlet weak var switcher: UISwitch!
+    @IBOutlet weak var pokedexCollectionView: UICollectionView!
+    
+    // MARK: -VARIABLES
+
+    var pokemons: [Pokemon] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pokedexTableView.delegate = self
+        pokedexTableView.dataSource = self
+        pokedexCollectionView.delegate = self
+        pokedexCollectionView.dataSource = self
+        pokedexTableView.isHidden = false
+        pokedexCollectionView.isHidden = true
+        GetPokemons(completed: self.updateUI)
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func switchGrid(_ sender: Any) {
@@ -36,36 +44,13 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
-    @IBOutlet weak var pokedexTableView: UITableView!
-    @IBOutlet weak var switcher: UISwitch!
-    @IBOutlet weak var pokedexCollectionView: UICollectionView!
-    
-    var pokemons: [Pokemon] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pokedexTableView.delegate = self
-        pokedexTableView.dataSource = self
-        pokedexCollectionView.delegate = self
-        pokedexCollectionView.dataSource = self
-        pokedexTableView.isHidden = false
-        pokedexCollectionView.isHidden = true
-        GetPokemons(completed: self.updateUI)
-        // Do any additional setup after loading the view.
-    }
-    
+
     func updateUI(pokemonsData: [Pokemon]) {
         pokemons = pokemonsData
         pokedexTableView.reloadData()
         pokedexCollectionView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -88,6 +73,10 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     
+    
+}
+
+extension PokedexViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -122,5 +111,22 @@ class PokedexViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pokemons.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
+        cell.pokemonImage.sd_setImage(with: URL(string: "http://pokedex-mti.twitchytv.live/images/\(indexPath.row + 1).png"), placeholderImage: UIImage(named: "pokeball"))
+        cell.pokemonName.text = pokemons[indexPath.row].name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
