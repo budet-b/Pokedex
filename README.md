@@ -16,6 +16,8 @@
 
 `carthage update --platform ios`
 
+/!\ After installation you have to drag and drop ML model in the ML folder in XCode /!\
+
 ## TP1
 - CollectionView with pokemons image
 - TableView with pokemons images, name, type1, type2
