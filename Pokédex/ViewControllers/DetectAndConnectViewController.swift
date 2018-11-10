@@ -21,6 +21,7 @@ class DetectAndConnectViewController: UIViewController {
     
     @IBAction func ConnectButtonPressed(_ sender: Any) {
         MultipeerService.shared.start(true)
+
     }
     
     /*
@@ -34,22 +35,11 @@ class DetectAndConnectViewController: UIViewController {
     */
 }
 
-//extension DetectAndConnectViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return MultipeerService.shared.
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
-//
-//}
-
 extension DetectAndConnectViewController: MultipeerServiceDelegate {
 
     func lostConnectedPeer(with name: String) {
-        print("lost")
+        MultipeerService.shared.tryToConnect(to: name)
+        print("lost \(name)")
     }
     
     func receive(code: String) {
@@ -62,5 +52,7 @@ extension DetectAndConnectViewController: MultipeerServiceDelegate {
     
     func peerDidConnect(with name: String) {
         print("\(name)")
+        let mm: MultipeerMessage = MultipeerMessage(type: .sendCode, content: "Hello Didier")
+        MultipeerService.shared.send(message: mm, to: [name])
     }
 }

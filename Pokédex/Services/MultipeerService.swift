@@ -16,7 +16,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
     
     private let localPeerId: MCPeerID
     private var localSession: MCSession?
-    private var foundPeerArray: [MCPeerID] = []
+    public var foundPeerArray: [MCPeerID] = []
     
     private var localBrowser: MCNearbyServiceBrowser?
     private var localAdvertiser: MCNearbyServiceAdvertiser?
@@ -81,6 +81,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
             
             try localSession?.send(jsonData, toPeers: tPeers, with: .reliable)
         } catch {
+            
             debugPrint("serialization for multipeer should work")
         }
     }
@@ -101,9 +102,11 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
     public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         
         if let message = try? JSONDecoder().decode(MultipeerMessage.self, from: data) {
+            print(message)
             switch message.type {
             case .sendCode:
                 if let str: String = message.content {
+                    print(str)
                     delegate?.receive(code: str)
                 }
             default:
@@ -179,7 +182,6 @@ public extension MultipeerServiceDelegate {
     func lost(foundPeer name: String) { }
     func peerDidConnect(with name: String) { }
 }
-
 
 public enum MultipeerMessageType: Int, Codable {
     case sendCode
