@@ -105,7 +105,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
             print(message)
             switch message.type {
             case .sendCode:
-                if let str: String = message.content {
+                if let str: PokemonArena = message.content {
                     print(str)
                     delegate?.receive(code: str)
                 }
@@ -169,7 +169,7 @@ public class MultipeerService: NSObject, MCNearbyServiceBrowserDelegate, MCNearb
 }
 
 public protocol MultipeerServiceDelegate: class {
-    func receive(code: String)
+    func receive(code: PokemonArena)
     func found(peer name: String)
     func lost(foundPeer name: String)
     func peerDidConnect(with name: String)
@@ -177,7 +177,7 @@ public protocol MultipeerServiceDelegate: class {
 }
 
 public extension MultipeerServiceDelegate {
-    func receive(code: String) { }
+    func receive(code: PokemonArena) { }
     func found(peer name: String) { }
     func lost(foundPeer name: String) { }
     func peerDidConnect(with name: String) { }
