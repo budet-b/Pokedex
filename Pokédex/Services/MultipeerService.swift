@@ -198,7 +198,7 @@ open class MultipeerMessage: Codable {
     // MARK: - Properties
     
     public let type: MultipeerMessageType
-    public let content: String?
+    public let content: PokemonArena?
     
     // *********************************************************************
     // MARK: - Parsing
@@ -209,7 +209,7 @@ open class MultipeerMessage: Codable {
     // *********************************************************************
     // MARK: - Methods
     
-    public init(type: MultipeerMessageType, content: String? = nil) {
+    public init(type: MultipeerMessageType, content: PokemonArena? = nil) {
         self.type = type
         self.content = content
     }

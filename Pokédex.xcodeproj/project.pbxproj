@@ -17,6 +17,9 @@
 		CB294DFE2182333D0059B010 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB294DFD2182333C0059B010 /* Alamofire.framework */; };
 		CB294DFF218233630059B010 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB294DFD2182333C0059B010 /* Alamofire.framework */; };
 		CB294E00218233630059B010 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB294DFD2182333C0059B010 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB517EAD219B2068007CFE8D /* PokemonArena.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB517EAC219B2068007CFE8D /* PokemonArena.swift */; };
+		CB517EAF219B20F4007CFE8D /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB517EAE219B20F4007CFE8D /* Attack.swift */; };
+		CB517EB1219B2325007CFE8D /* PokemonSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB517EB0219B2325007CFE8D /* PokemonSpecies.swift */; };
 		CB5D7E8C2190632E008B5BF7 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D7E8B2190632E008B5BF7 /* PokemonCollectionViewCell.swift */; };
 		CB64E2E12196056400682C78 /* MultipeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64E2E02196056400682C78 /* MultipeerService.swift */; };
 		CB64E2E32196086200682C78 /* DetectAndConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64E2E22196086200682C78 /* DetectAndConnectViewController.swift */; };
@@ -61,6 +64,9 @@
 		CB294DF02182247A0059B010 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		CB294DF6218228AA0059B010 /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
 		CB294DFD2182333C0059B010 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		CB517EAC219B2068007CFE8D /* PokemonArena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonArena.swift; sourceTree = "<group>"; };
+		CB517EAE219B20F4007CFE8D /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
+		CB517EB0219B2325007CFE8D /* PokemonSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpecies.swift; sourceTree = "<group>"; };
 		CB5D7E8B2190632E008B5BF7 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB64E2E02196056400682C78 /* MultipeerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerService.swift; sourceTree = "<group>"; };
 		CB64E2E22196086200682C78 /* DetectAndConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectAndConnectViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,9 @@
 			children = (
 				CB294DEE218223940059B010 /* Pokemon.swift */,
 				CB294DF02182247A0059B010 /* Type.swift */,
+				CB517EAC219B2068007CFE8D /* PokemonArena.swift */,
+				CB517EAE219B20F4007CFE8D /* Attack.swift */,
+				CB517EB0219B2325007CFE8D /* PokemonSpecies.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -266,13 +275,16 @@
 				CB64E2E12196056400682C78 /* MultipeerService.swift in Sources */,
 				CB7EBAE921909A4200346C97 /* PokemonMLViewController.swift in Sources */,
 				CB755907218CE7AD00F2FCE5 /* PokemonTableViewCell.swift in Sources */,
+				CB517EB1219B2325007CFE8D /* PokemonSpecies.swift in Sources */,
 				CB7EBAEC21909ACA00346C97 /* ImageClassifier.mlmodel in Sources */,
 				CB5D7E8C2190632E008B5BF7 /* PokemonCollectionViewCell.swift in Sources */,
 				CB64E2E32196086200682C78 /* DetectAndConnectViewController.swift in Sources */,
 				CB294DDC2182232F0059B010 /* AppDelegate.swift in Sources */,
+				CB517EAF219B20F4007CFE8D /* Attack.swift in Sources */,
 				CB755910218DD18800F2FCE5 /* TypesColor.swift in Sources */,
 				CB294DEF218223940059B010 /* Pokemon.swift in Sources */,
 				CB294DF12182247A0059B010 /* Type.swift in Sources */,
+				CB517EAD219B2068007CFE8D /* PokemonArena.swift in Sources */,
 				CB755900218C79C700F2FCE5 /* PokedexViewController.swift in Sources */,
 				CB75590D218DAED500F2FCE5 /* PokemonDetailViewController.swift in Sources */,
 			);

@@ -48,3 +48,28 @@ func GetPokemonImage(id: Int, completed: @escaping (UIImage) -> ()) {
         }
     }
 }
+
+func GeneratePokemon(completed: @escaping (PokemonArena) -> ()) {
+    let headers: HTTPHeaders = [
+        "Accept": "application/json"
+    ]
+    let urlPokemon = "http://pokedex-mti.twitchytv.live/pokemon/generate"
+    let url = URL(string: urlPokemon)
+    Alamofire.request(url!, method: .get, headers: headers)
+        .responseData(completionHandler: {
+            response in
+            switch response.result {
+            case .success(let data):
+                print(response.result)
+                do {
+                    let pokemonRes = try JSONDecoder().decode(PokemonArena.self, from: data)
+                    completed(pokemonRes)
+                } catch {
+                    print("error")
+                }
+            case .failure:
+                print("error")
+            }
+        })
+
+}
